@@ -197,7 +197,7 @@ async def verify_order(data: OrderVerify):
             "bank_receipt": data.bank_receipt,
             "status": "verified",
         }).eq("order_id", data.order_id).execute()
-        return {"order_id": data.order_id, "status": "verified"}
+        return {"order_id": data.order_id, "status": "verified", "verified": True}
     except HTTPException:
         raise
     except Exception as e:
